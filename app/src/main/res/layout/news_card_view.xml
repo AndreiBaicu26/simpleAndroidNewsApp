@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="article"
+            type="ro.example.android.data.local.ArticleEntity" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/articleCardViewHolder"
+        android:layout_width="match_parent"
+        android:layout_height="134dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="18dp"
+        android:background="#30444E"
+        app:cardCornerRadius="30dp"
+        app:cardElevation="20dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#30444E">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/imageHolder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginBottom="1dp"
+                app:cardCornerRadius="25dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/newsImageView"
+                    android:layout_width="101dp"
+                    android:layout_height="115dp"
+                    android:scaleType="centerCrop">
+
+                </ImageView>
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:layout_width="170dp"
+                android:layout_height="120dp"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/imageHolder"
+                app:layout_constraintRight_toLeftOf="@+id/btnShare"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/tvArticleTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginEnd="2dp"
+                    android:fontFamily="@font/roboto_light"
+                    android:maxLength="30"
+                    android:maxLines="2"
+                    android:text="@{article.title}"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tvTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginEnd="2dp"
+                    android:fontFamily="@font/roboto_light"
+                    android:maxLength="20"
+                    android:maxLines="1"
+                    android:text="@{article.sourceName}"
+                    android:textColor="@color/white"
+                    android:textSize="17sp"
+                    android:layout_marginTop="16dp"/>
+            </LinearLayout>
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSave"
+                style="@style/custom_btn_save"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/save_custom_button"
+                android:backgroundTint="#30444E"
+                app:cornerRadius="40dp"
+                app:icon="@drawable/ic_save_article"
+                app:iconGravity="textStart"
+                app:layout_constraintEnd_toEndOf="parent"
+
+                app:layout_constraintTop_toTopOf="parent"
+                app:strokeColor="@color/mintGreen"
+                app:strokeWidth="2dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnShare"
+                style="@style/custom_btn_save"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:backgroundTint="@color/mintGreen"
+                app:cornerRadius="40dp"
+                app:icon="@drawable/ic_share"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnSave" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+</layout>
+
